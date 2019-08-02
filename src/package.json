@@ -1,0 +1,13 @@
+{
+  "name": "powster-coding-test",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "index.js",
+  "dependencies": {
+    "axios": "0.19.0",
+    "react": "16.0.0",
+    "react-dom": "16.0.0",
+    "react-transition-group": "2.2.1"
+  }
+}

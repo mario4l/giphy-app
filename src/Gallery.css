@@ -1,0 +1,36 @@
+body {
+  background-color: #1a1a1d;
+}
+
+.center-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* starting animations */
+.messageout-enter {
+  position: absolute;
+  top: 0;
+  left: calc(13% + 15px);
+  right: calc(13% + 5px);
+  transform: translateY(0%) scale(0.01);
+}
+
+.messageout-enter-active {
+  opacity: 1;
+  transform: translateY(0%) scale(1);
+  transition: all 4000ms ease-in-out;
+}
+
+.messageout-exit {
+  opacity: 1;
+  transform: scale(1.01);
+}
+
+.messageout-exit-active {
+  opacity: 0;
+  transform: scale(4);
+  transition: all 4000ms ease-in-out;
+}
+/* ending EXIT animation */

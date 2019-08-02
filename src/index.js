@@ -1,22 +1,9 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
-import axios from "axios";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
-import "./Gallery.css";
-import Spinner from "./components/Spinner";
-
-// GOAL: Create a React Gallery App with 1 large active image, and inactive thumb images below where you can change the active image
-// INSTRUCTIONS:
-// 0. Fork this repo to a new project [x]
-// 1. Make a call to the giphy API and pull in a list of random images (API url: https://api.giphy.com/v1/gifs/trending?api_key=PEyIrGaWdf08Lw4nezyXejpD9Y0pO6Rt) [x]
-// 1.1 You can read up on the api over here https://developers.giphy.com/docs/ [x]
-// 2. Set the active image in the state of the Gallery component [x]
-// 3. Create a list of inactive images using the GalleryThumb Component [x]
-// 4. Add an automatic timer that changes the active images after 3 seconds [x]
-// 5. On click of each GalleryThumb, update the active image [x]
-// 6. Add a remove button on the GalleryThumb that deletes images when clicked [x]
-// 7. Add a slick animation to transition between active images (that's more complex then just opacity) [x]
-// 8. Add any extra styling & behaviour to make it look polished [x]
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import axios from 'axios';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import './Gallery.css';
+import Spinner from './components/Spinner';
 
 class Gallery extends Component {
   state = {
@@ -56,7 +43,7 @@ class Gallery extends Component {
   // within this.setState call, flip the isLoading state to true - if false, this will prevent images to be rendered
   onGiphyLoad = async () => {
     const response = await axios.get(
-      "https://api.giphy.com/v1/gifs/trending?api_key=PEyIrGaWdf08Lw4nezyXejpD9Y0pO6Rt"
+      'https://api.giphy.com/v1/gifs/trending?api_key=PEyIrGaWdf08Lw4nezyXejpD9Y0pO6Rt'
     );
     this.setState({
       images: response.data.data,
@@ -101,8 +88,8 @@ class Gallery extends Component {
 
   render() {
     return (
-      <div className="ui container" style={{ marginTop: "20px" }}>
-        <h4 className="ui header" style={{ color: "#A6A6A6" }}>
+      <div className="ui container" style={{ marginTop: '20px' }}>
+        <h4 className="ui header" style={{ color: '#A6A6A6' }}>
           <i className="chart line icon" />
           <div className="content">TRENDING GIFS</div>
         </h4>
@@ -141,18 +128,18 @@ class GalleryThumb extends Component {
     return (
       <div
         className="ui large horizontal divided list"
-        style={{ marginTop: "40px", marginBottom: "20px" }}
+        style={{ marginTop: '40px', marginBottom: '20px' }}
       >
         {/* map over images array, return elements to be rendered for each thumbnail image */}
         {/* onClick event handlers to set active image, and remove image from images array */}
         {this.props.images.map(image => {
           return (
-            <div className="item" key={image.id} style={{ marginTop: "20px" }}>
+            <div className="item" key={image.id} style={{ marginTop: '20px' }}>
               <img
                 style={{
-                  maxWidth: "140px",
-                  maxHeight: "140px",
-                  cursor: "pointer"
+                  maxWidth: '140px',
+                  maxHeight: '140px',
+                  cursor: 'pointer'
                 }}
                 src={image.images.downsized_still.url}
                 alt={image.title}
@@ -162,7 +149,7 @@ class GalleryThumb extends Component {
               />
               <button
                 className="fluid ui button"
-                style={{ marginTop: "5px" }}
+                style={{ marginTop: '5px' }}
                 onClick={() => this.props.onRemove(image.id)}
               >
                 Remove
@@ -175,4 +162,4 @@ class GalleryThumb extends Component {
   }
 }
 
-render(<Gallery />, document.getElementById("root"));
+render(<Gallery />, document.getElementById('root'));
